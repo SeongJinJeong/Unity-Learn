@@ -7,12 +7,14 @@ using UnityEngine.Rendering;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float Speed = 1.0f;
+    float Speed = 10.0f;
     [SerializeField]
     float JumpHeight = 1.0f;
 
     float MAX_X = 25f;
     string MOVE_ANIM = "isMoving";
+    string JUMP_ANIM = "isJump";
+
     bool isJump = false;
     bool isMoving = false;
 
@@ -29,38 +31,50 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.getInstance().gameStart = true;
         anim.SetBool(MOVE_ANIM, false);
+        transform.position = new Vector3(0f, 2f,0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkInput();
+        
+            checkInput();
     }
 
     void checkInput()
     {
-        var v = Input.GetAxisRaw("Vertical");
-        var h = Input.GetAxisRaw("Horizontal");
-        movePlayer(v,h);
-        flipPlayer(h);
-        jumpPlayer(v);
+        var y = Input.GetAxisRaw("Vertical");
+        var x = Input.GetAxisRaw("Horizontal");
+        movePlayer(y,x);
+        flipPlayer(x);
+        jumpPlayer(y);
     }
 
-    void movePlayer(float v, float h)
+    void movePlayer(float y, float x)
     {
-        if( v != 0 || h != 0 )
+        if( x != 0 )
         {
             if (Math.Abs(transform.position.x) >= MAX_X) {
-                onReachEndPosition(h);
+                float xPos = transform.position.x;
+                if (xPos >= 25)
+                {
+                    xPos = 24.9f;
+                } else if(xPos <= -25)
+                {
+                    xPos = -24.9f;
+                }
+                transform.position = new Vector3(xPos, transform.position.y);
                 return;
             }
 
             isMoving = true;
-            float moveX = h * this.Speed;
+            float moveX = x * this.Speed * Time.deltaTime;
             transform.position += new Vector3(moveX, 0, 0);
             transform.rotation = new Quaternion(0, 0, 0, 0);
-            anim.SetBool(MOVE_ANIM, true);
+            if(this.isJump == false)
+                anim.SetBool(MOVE_ANIM, true);
         } else
         {
             anim.SetBool(MOVE_ANIM, false);
@@ -84,6 +98,8 @@ public class PlayerController : MonoBehaviour
         {
             isJump = true;
             myBody.AddForce(Vector2.up * JumpHeight,ForceMode2D.Impulse);
+            anim.SetBool(JUMP_ANIM, isJump);
+            anim.SetBool(MOVE_ANIM, false);
         }
     }
 
@@ -92,13 +108,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             this.isJump = false;
+            anim.SetBool(JUMP_ANIM, isJump);
         }
     }
 
-    void onReachEndPosition(float x)
+    public void resetPlayer()
     {
-        isMoving = false;
-        float xPos = x < 0 ? (x * MAX_X) + 0.1f : (x * MAX_X) - 0.1f;
-        transform.position = new Vector3(xPos ,transform.position.y);
+
     }
 }

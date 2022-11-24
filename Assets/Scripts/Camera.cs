@@ -10,11 +10,7 @@ public class Camera : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        player = GameObject.Find("Player");
-        if (!player)
-        {
-            player = GameObject.Find("Player2");
-        }
+
     }
 
     private void Start()
@@ -25,6 +21,7 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         checkPos();
     }
 
@@ -39,6 +36,20 @@ public class Camera : MonoBehaviour
 
     void _changeCamerPos()
     {
-        transform.position = new Vector3(player.transform.position.x, 1, -1);
+        if (transform.position.x >= 25)
+        {
+            transform.position = new Vector3(24.9f, transform.position.y, -1);
+            return;
+        }
+        else if (transform.position.x <= -25)
+        {
+            transform.position = new Vector3(-24.9f, transform.position.y, -1);
+            return;
+        }
+        else
+        {
+            transform.position = new Vector3(player.transform.position.x, 1, -1);
+            return;
+        }
     }
 }
