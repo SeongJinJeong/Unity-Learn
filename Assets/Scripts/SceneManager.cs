@@ -34,7 +34,6 @@ public class SceneManager : MonoBehaviour
     public void onGameEnd()
     {
         Time.timeScale = 0;
-        DontDestroyOnLoad(this);
         sceneMgr.SceneManager.LoadScene("Lobby", sceneMgr.LoadSceneMode.Single);
     }
 }

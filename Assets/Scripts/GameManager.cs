@@ -5,9 +5,11 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
+    public int playerIndex = 1;
     public bool gameStart = false;
     int currStage = 0;
     int enemiesCount = 0;
@@ -28,22 +30,22 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager getInstance()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = new GameManager();
+            return instance;
         }
 
         return instance;
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(GameObject.Find("DataManager"));
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-
         startGame();
     }
 
@@ -58,7 +60,9 @@ public class GameManager : MonoBehaviour
     }
     void makePlayer()
     {
-        GameObject player = Resources.Load<GameObject>("Prefabs/Players/Player");
+        playerIndex = DataManager.getInstance().playerIndex;
+        string playerName = playerIndex == 1 ? "Prefabs/Players/Player" : "Prefabs/Players/Player2";
+        GameObject player = Resources.Load<GameObject>(playerName);
         Instantiate(player);
         player.SetActive(true);
     }
@@ -110,7 +114,7 @@ public class GameManager : MonoBehaviour
     void endGame()
     {
         resetAll();
-        SceneManager.getInstance().onGameEnd();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
     }
 
     void resetAll()
