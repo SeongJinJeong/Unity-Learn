@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         startGame();
     }
 
-    void startGame()
+    public void startGame()
     {
         float enemyCount = stageData["stage" + currStage];
 
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
    
 
-    void endGame()
+    public void endGame()
     {
         resetAll();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");

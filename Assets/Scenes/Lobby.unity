@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 352727768}
   - component: {fileID: 352727767}
   - component: {fileID: 352727770}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Player1 Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352727765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 99.999916}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -160,9 +160,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: -250}
-  m_SizeDelta: {x: 341, y: 341}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -57, y: -62.28}
+  m_SizeDelta: {x: 172.07, y: 205.03}
+  m_Pivot: {x: 1.0937694, y: 0.83516914}
 --- !u!114 &352727767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,9 +325,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1285271935
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2d5030393d232fc4889038717e1547e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -353,7 +353,7 @@ Transform:
   m_Children:
   - {fileID: 657038091}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657038089
 GameObject:
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1285271935
+  m_SortingLayerID: 793202257
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d6a3ae6d2dcbd0b42a3765eec1a9e643, type: 3}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 867283224}
   - component: {fileID: 867283226}
   - component: {fileID: 867283225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1348831818}
   - component: {fileID: 1348831817}
   - component: {fileID: 1348831820}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Player2 Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,9 +543,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: -250}
-  m_SizeDelta: {x: 341, y: 341}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 100, y: -131}
+  m_SizeDelta: {x: 172.07, y: 205.03}
+  m_Pivot: {x: 0.17673817, y: 0.5}
 --- !u!114 &1348831817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70014b80db0c4c64da6804c492c4f5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: -1
 --- !u!4 &1709726300
 Transform:
   m_ObjectHideFlags: 0
@@ -792,7 +793,7 @@ GameObject:
   - component: {fileID: 1791048610}
   - component: {fileID: 1791048612}
   - component: {fileID: 1791048611}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,8 +817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 1000, y: 500}
+  m_AnchoredPosition: {x: 0, y: 119.18}
+  m_SizeDelta: {x: 581.79, y: 238.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791048611
 MonoBehaviour:
@@ -866,8 +867,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -928,7 +929,7 @@ GameObject:
   - component: {fileID: 1964575709}
   - component: {fileID: 1964575708}
   - component: {fileID: 1964575707}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &1964575708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1014,7 @@ RectTransform:
   - {fileID: 1348831816}
   - {fileID: 1791048610}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
